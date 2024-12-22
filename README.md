@@ -1,25 +1,26 @@
-# ml-pyproj (Machine Learning Projects via python)
+# Machine Learning Projects via ml-pyproj
 
-ml-pyproj is all about various ML or MPOps related projects written in Python.
+Welcome to the `ml-pyproj` repository, a comprehensive collection of machine learning (ML) and MLOps processes and guidelines implemented in Python.
 
-## Categories 
+## Categories
 
-1. ml-ensemble - contains ML Ensemble techniques related to classificatio / predictions 
-2. ml-bentoml - contains projects related to BentoML
+1. **ml-ensembles**: Contains ML ensemble techniques related to classification and predictions.
+2. **ml-pipelines**: Contains projects related to BentoML.
+<!-- 3. **ml-bentoml**: Contains projects related to BentoML. -->
 
 ## Code Scanner
 
-This Repo uses CodeQL for code scanner process via GitHub Actions
+This repository utilizes CodeQL for code scanning through GitHub Actions to ensure code security and quality.
 
-# Code Quality
+## Code Quality
 
-This Repo follows SOLID principles - 
-- Single Responsibles Classes, 
-- Open-Closed Functions, 
-- Liskov Substitution Logic, 
-- Interface Segregation Logics
-- Dependency Inversion on Modules 
+I adhere to the SOLID principles to maintain high code quality:
+- **Single Responsibility Principle**
+- **Open-Closed Principle**
+- **Liskov Substitution Principle**
+- **Interface Segregation Principle**
+- **Dependency Inversion Principle**
 
-Cheers !! :v: :clinking_glasses:
+Thank you for visiting! :v: :clinking_glasses:
 
-@2024 sabyasc, github.com/sabyasc
+© 2024 sabyasc, [github.com/sabyasc](https://github.com/sabyasc)
