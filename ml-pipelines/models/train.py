@@ -5,6 +5,7 @@ created: Dec 2024
 """
 import pandas as pd
 import nltk
+import joblib
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from textblob import TextBlob
@@ -88,7 +89,7 @@ def preprocessing():
 # Step 8: Return the model metrics and predictions
 def model_training():
     df = preprocessing()
-
+    
     def sentiment_analysis(data):
         analysis = TextBlob(data)
         if analysis.sentiment.polarity > 0:
@@ -261,8 +262,20 @@ def model_testing():
         "correct_classified": correct_classified
     }
 
+# Model Deployment is to deploy the model with model_validation outputs. We will follow below steps:
+# Step 1: Save the model metadata and trained model to 'metadata.pkl' and 'trained_model.pkl' respectively,
+# Step 2: Console log message for successful model deployment,
+# Step 3: Return metadata of the model
 def model_deployment():
-    df = model_testing()
+    metadata = model_validation()
+    
+    joblib.dump(metadata, './metadata/metadata.pkl')
+    print("Model data saved to 'metadata.pkl'")
+
+    ensemble_model = metadata['best_model']
+    joblib.dump(ensemble_model, './metadata/trained_model.pkl')
+    print("Trained ensemble model saved to 'trained_model.pkl'")
+    
     print("================ Model Deployment completed ================")
-    return df
+    return metadata
 
