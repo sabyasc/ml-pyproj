@@ -4,7 +4,7 @@ github: https://github.com/sabyasc
 created: Dec 2024
 """
 from flask import Flask
-from models.train import model_validation, model_testing
+from models.train import model_testing, model_deployment
 
 app = Flask(__name__)
 
@@ -13,17 +13,17 @@ app = Flask(__name__)
 def status():
     return {'status': 'Success'}
 
-# To fetch /api/model details
+# To fetch /model metadata
 @app.route("/api/model", methods = ['GET'])
-def data_processing_api():
-    processed_data = model_validation()
-    return processed_data
+def model_metadata_api():
+    metadata = model_deployment()
+    return metadata
 
-# To fetch /api/model/test details
+# To /test model performance
 @app.route("/api/model/test", methods = ['GET'])
-def data_testing_api():
-    test_data = model_testing()
-    return test_data
+def model_test_api():
+    test_model = model_testing()
+    return test_model
 
 if __name__ == '__main__':
-    app.run(debug=True, port='5000')
+    app.run(port=5000)
