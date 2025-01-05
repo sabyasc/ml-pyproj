@@ -3,6 +3,5 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     target-branch: "main"
-    requirements-file: "requirement.txt"
     schedule:
       interval: "weekly"
