@@ -1,6 +1,8 @@
 version: 2
 updates:
   - package-ecosystem: "pip"
-    directory: "../requirement.txt"
+    directory: "/"
+    target-branch: "main"
+    requirements-file: "requirement.txt"
     schedule:
       interval: "weekly"
