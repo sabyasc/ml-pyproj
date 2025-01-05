@@ -1,0 +1,36 @@
+name: Production
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - '**'
+      - '.github/workflows/production.yml'
+  pull_request:
+    branches: ["main"]
+
+env:
+  REQUIREMENTS_FILE: ./cfn/requirements.txt
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r ${{ env.REQUIREMENTS_FILE }}
+
+    - name: Run tests
+      run: |
+        pytest
