@@ -4,7 +4,7 @@ github: https://github.com/sabyasc
 created: Dec 2024
 """
 import pandas as pd
-import nltk
+import nltk, mlflow, mlflow.sklearn
 import joblib
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
@@ -145,6 +145,20 @@ def model_training():
         "y_test": y_test.tolist(),
         "y_pred": y_pred.tolist()
     }
+
+# TODO
+def model_tracking():
+    outputs = model_training()
+    mlflow.start_run()
+    mlflow.log_param("Best Model", outputs['best_model'])
+    mlflow.log_metric("Accuracy", outputs['accuracy'])
+    mlflow.log_metric("Precision", outputs['precision'])
+    mlflow.log_metric("Recall", outputs['recall'])
+    mlflow.end_run()
+    print("================ Model Tracking completed ================")
+    # mlflow.set_tracking_uri("http://localhost:5000")
+    # mlflow.set_experiment("Sentiment Analysis Experiment")
+    return outputs
 
 # Model Evaluation is to evaluate the model with model_training outputs. We will follow below steps:
 # Step 1: Calculate f1 score, confusion matrix, classification report,

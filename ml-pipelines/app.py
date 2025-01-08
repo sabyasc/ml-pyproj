@@ -4,7 +4,7 @@ github: https://github.com/sabyasc
 created: Dec 2024
 """
 from flask import Flask
-from models.train import model_testing, model_deployment
+from models.train import model_testing, model_deployment, model_tracking
 
 app = Flask(__name__)
 
@@ -17,6 +17,12 @@ def status():
 @app.route("/api/model", methods = ['GET'])
 def model_metadata_api():
     metadata = model_deployment()
+    return metadata
+
+# TODO
+@app.route("/api/model/track", methods = ['GET'])
+def model_tracking_api():
+    metadata = model_tracking()
     return metadata
 
 # To /test model performance
