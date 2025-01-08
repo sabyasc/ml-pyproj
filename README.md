@@ -29,7 +29,7 @@ All projects adhere to the SOLID principles to maintain high code quality:
 
 ### 🤝 Reach Out for Collaboration
 
-- 📫 Reach out to me via [LinkedIn](https://www.linkedin.com/in/sabyasc/) or [Email](mailto:sabya.1834090@gmail.com)
+📫 Reach out to me via [LinkedIn](https://www.linkedin.com/in/sabyasc/) or [Email](mailto:sabya.1834090@gmail.com)
 
 Thank you for checking out this project! 
 Cheers!! :clinking_glasses:
