@@ -2,6 +2,7 @@
 __pycache__/
 __pypackages__/
 metadata/
+mlruns/
 .Python
 MANIFEST
 .env
