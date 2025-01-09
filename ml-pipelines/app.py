@@ -19,9 +19,9 @@ def model_metadata_api():
     metadata = model_deployment()
     return metadata
 
-# TODO
+# To /track model performance
 @app.route("/api/model/track", methods = ['GET'])
-def model_tracking_api():
+def model_track_api():
     metadata = model_tracking()
     return metadata
 
