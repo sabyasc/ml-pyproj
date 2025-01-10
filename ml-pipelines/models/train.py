@@ -146,7 +146,10 @@ def model_training():
         "y_pred": y_pred.tolist()
     }
 
-# TODO
+# Model Tracking is to track the model with model_training outputs. We will follow below steps:
+# Step 1: Log the best model, accuracy, precision, recall scores,
+# Step 2: Console log message for successful model tracking,
+# Step 3: Return outputs of the model metrics and predictions
 def model_tracking():
     outputs = model_training()
     mlflow.start_run()
