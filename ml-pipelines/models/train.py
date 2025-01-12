@@ -5,7 +5,7 @@ created: Dec 2024
 """
 import pandas as pd
 import nltk, mlflow, mlflow.sklearn
-import joblib
+import joblib, json
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from textblob import TextBlob
@@ -146,23 +146,6 @@ def model_training():
         "y_pred": y_pred.tolist()
     }
 
-# Model Tracking is to track the model with model_training outputs. We will follow below steps:
-# Step 1: Log the best model, accuracy, precision, recall scores,
-# Step 2: Console log message for successful model tracking,
-# Step 3: Return outputs of the model metrics and predictions
-def model_tracking():
-    outputs = model_training()
-    mlflow.start_run()
-    mlflow.log_param("Best Model", outputs['best_model'])
-    mlflow.log_metric("Accuracy", outputs['accuracy'])
-    mlflow.log_metric("Precision", outputs['precision'])
-    mlflow.log_metric("Recall", outputs['recall'])
-    mlflow.end_run()
-    print("================ Model Tracking completed ================")
-    # mlflow.set_tracking_uri("http://localhost:5000")
-    # mlflow.set_experiment("Sentiment Analysis Experiment")
-    return outputs
-
 # Model Evaluation is to evaluate the model with model_training outputs. We will follow below steps:
 # Step 1: Calculate f1 score, confusion matrix, classification report,
 # Step 2: Display outputs of the model metrics and predictions,
@@ -245,6 +228,36 @@ def model_validation():
     print(f"Overfitting: {overfitting}")
 
     print("================ Model Validation completed ================")
+    return outputs
+
+# Model Tracking is to track the model with model_training outputs. We will follow below steps:
+# Step 1: Log the best model, accuracy, precision, recall scores,
+# Step 2: Log confusion matrix and classification report,
+# Step 3: Save the confusion matrix and classification report to artifacts,
+# Step 4: Console log message for successful model tracking,
+# Step 5: Return outputs of the model metrics and predictions
+def model_tracking():
+    outputs = model_validation()
+    mlflow.start_run()
+    mlflow.log_param("Best Model", outputs['best_model'])
+    mlflow.log_metric("Accuracy", outputs['accuracy'])
+    mlflow.log_metric("Precision", outputs['precision'])
+    mlflow.log_metric("Recall", outputs['recall'])
+    mlflow.log_metric("Overfitting", outputs['overfitting'])
+    mlflow.log_metric("F1 Score", outputs['f1_score'])
+    mlflow.log_metric("ROC AUC Score", outputs['roc_auc'])
+    
+    confusion_matrix_path = './confusion_matrix.csv'
+    pd.DataFrame(outputs['confusion_matrix']).to_csv(confusion_matrix_path, index=False)
+    mlflow.log_artifact(confusion_matrix_path)
+    
+    classification_report_path = './classification_report.json'
+    with open(classification_report_path, 'w') as f:
+        json.dump(outputs['classification_report'], f)
+    mlflow.log_artifact(classification_report_path)
+    
+    mlflow.end_run()
+    print("================ Model Tracking completed ================")
     return outputs
 
 # Model Testing is to test the model with model_validation outputs. We will follow below steps:
