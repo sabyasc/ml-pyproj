@@ -10,7 +10,7 @@ on:
     branches: ["main"]
 
 env:
-  REQUIREMENTS_FILE: ./cfn/requirements.txt
+  REQUIREMENTS_FILE: ./requirements.txt
 
 jobs:
   build:
