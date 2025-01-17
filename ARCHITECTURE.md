@@ -9,9 +9,10 @@ predict-flow/
 │   ├── processed/             
 │   └── external/              
 ├── src/
-│   ├── __init__.py            
-│   ├── data_ingestion.py     
-│   ├── data_preprocessing.py  
+│   ├── preprocess/
+│   │       ├── data_ingestion.py
+│   │       └── data_preprocessing.py
+│   ├── __init__.py  
 │   ├── model_training.py      
 │   ├── model_evaluation.py    
 │   ├── model_deployment.py   
