@@ -42,9 +42,7 @@ predict-flow/
 Each directory and file serves a specific purpose in the project:
 
 - **data/**: Contains all data-related files and directories.
-- **notebooks/**: Contains Jupyter notebooks for data analysis and experimentation.
 - **src/**: Contains source code for data processing, model training, evaluation, and deployment.
-- **tests/**: Contains test scripts to ensure the correctness of the code.
 - **scripts/**: Contains scripts to run various parts of the project pipeline.
 - **config/**: Contains configuration files.
 - **Dockerfile**: Defines the Docker image for the project.
