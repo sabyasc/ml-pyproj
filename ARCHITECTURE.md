@@ -12,11 +12,14 @@ predict-flow/
 │   ├── preprocess/
 │   │       ├── data_ingestion.py
 │   │       └── data_preprocessing.py
-│   ├── __init__.py  
-│   ├── model_training.py      
-│   ├── model_evaluation.py    
-│   ├── model_deployment.py   
-│   └── utils.py               
+│   ├── model/
+│   │       ├── model_training.py
+│   │       ├── model_evaluation.py
+│   │       ├── model_tracking.py
+│   │       └── model_deployment.py 
+│   ├── utils/
+│   ├── app.py
+│   └── __init__.py                
 ├── scripts/
 │   ├── run_pipeline.py       
 │   └── run_model_training.py  
