@@ -4,6 +4,11 @@ This document outlines the structure of the `ml-project` repository.
 
 ```
 predict-flow/
+├── .github/
+│   ├── workflows/
+│   │       ├── development.yml
+│   │       └── production.yml  
+│   └── dependabot.yml
 ├── data/
 │   ├── raw/                   
 │   ├── processed/             
@@ -18,13 +23,14 @@ predict-flow/
 │   │       ├── model_tracking.py
 │   │       └── model_deployment.py 
 │   ├── utils/
-│   ├── app.py
-│   └── __init__.py                
+│   ├── __init__.py 
+│   └── app.py
 ├── scripts/
 │   ├── run_pipeline.py       
 │   └── run_model_training.py  
 ├── config/
-│   └── config.yaml            
+│   ├── .env       
+│   └── config.yaml          
 ├── Dockerfile                 
 ├── requirements.txt           
 ├── README.md
