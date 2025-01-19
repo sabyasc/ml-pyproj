@@ -1,5 +1,5 @@
 """
-author: sabyasc
+author: @sabyasc
 github: https://github.com/sabyasc/ml-pyproj
 created: Dec 2024
 """
