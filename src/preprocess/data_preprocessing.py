@@ -4,8 +4,11 @@ github: https://github.com/sabyasc/ml-pyproj
 created: Jan 2025
 """
 # src libs are fetched from __init__.py
-from src.preprocess.data_ingestion import ingestion
-from src import nltk, TextBlob, word_tokenize, stopwords
+import nltk
+from preprocess.data_ingestion import ingestion
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from textblob import TextBlob
 
 # Required nltk packages 
 nltk.download('punkt_tab')
