@@ -3,7 +3,6 @@ author: @sabyasc
 github: https://github.com/sabyasc/ml-pyproj
 created: Dec 2024
 """
-# src libs are fetched from __init__.py
 import pandas as pd
 
 # Data Ingestion is to fetech data from sources, We will follow below steps:

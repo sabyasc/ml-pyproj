@@ -3,7 +3,6 @@ author: @sabyasc
 github: https://github.com/sabyasc/ml-pyproj
 created: Jan 2025
 """
-# src libs are fetched from __init__.py
 import nltk
 from preprocess.data_ingestion import ingestion
 from nltk.corpus import stopwords
