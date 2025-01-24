@@ -3,10 +3,15 @@ author: @sabyasc
 github: https://github.com/sabyasc/ml-pyproj
 created: Jan 2025
 """
-# src libs are fetched from __init__.py
-from src.preprocess.data_preprocessing import preprocessing
-from src import TextBlob, TfidfVectorizer, VotingClassifier, LogisticRegression, RandomForestClassifier, SVC, \
-    train_test_split,  accuracy_score, precision_score, recall_score
+from preprocess.data_preprocessing import preprocessing
+from textblob import TextBlob
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics import accuracy_score, precision_score, recall_score
+from sklearn.ensemble import VotingClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.svm import SVC
     
 # Data Training is to train the model with data_preprocessing data. We will follow below steps:
 # Step 1: Perform sentiment analysis on 'Tweet_Text', split data into X and y
