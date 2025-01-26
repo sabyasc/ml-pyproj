@@ -3,9 +3,8 @@ author: @sabyasc
 github: https://github.com/sabyasc/ml-pyproj
 created: Jan 2025
 """
-# src libs are fetched from __init__.py
 from model.model_training import train
-from src import f1_score, confusion_matrix, classification_report, roc_auc_score
+from sklearn.metrics import f1_score, confusion_matrix, classification_report, roc_auc_score
 
 # Model Evaluation is to evaluate the model with model_training outputs. We will follow below steps:
 # Step 1: Calculate f1 score, confusion matrix, classification report,
