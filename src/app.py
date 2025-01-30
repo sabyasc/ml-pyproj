@@ -5,7 +5,7 @@ created: Jan 2025
 """
 from flask import Flask
 from model.model_training import train
-# from model.model_tracking import model_deployment, model_tracking, model_testing
+from model.model_tracking import model_deployment, model_tracking, model_testing
 
 app = Flask(__name__)
 
@@ -20,17 +20,17 @@ def model_metadata_api():
     metadata = train()
     return metadata
 
-# # To /track model performance
-# @app.route("/api/model/track", methods=['GET'])
-# def model_track_api():
-#     metadata = model_tracking()
-#     return metadata
+# To /track model performance
+@app.route("/api/model/track", methods=['GET'])
+def model_track_api():
+    metadata = model_tracking()
+    return metadata
 
-# # To /test model performance
-# @app.route("/api/model/test", methods=['GET'])
-# def model_test_api():
-#     test_model = model_testing()
-#     return test_model
+# To /test model performance
+@app.route("/api/model/test", methods=['GET'])
+def model_test_api():
+    test_model = model_testing()
+    return test_model
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
