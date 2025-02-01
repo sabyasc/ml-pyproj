@@ -5,7 +5,7 @@ created: Jan 2025
 """
 from flask import Flask
 from model.model_training import train
-from model.model_tracking import model_deployment, model_tracking, model_testing
+from model.model_tracking import model_tracking, model_testing
 
 app = Flask(__name__)
 
