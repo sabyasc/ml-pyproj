@@ -13,6 +13,7 @@ def ingestion():
     current_dir = os.path.dirname(os.path.abspath(__file__))
     api_url = "https://jsonplaceholder.typicode.com/posts"
     api_response = requests.get(api_url)
+    
     if api_response.ok:
         api_data = api_response.json()
         print("================ API Data Ingestion Completed ================")
