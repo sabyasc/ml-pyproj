@@ -16,6 +16,7 @@ def ingestion():
     
     if api_response.ok:
         api_data = api_response.json()
+        print(api_data[:2])
         print("================ API Data Ingestion Completed ================")
     else:
         api_data = {}
