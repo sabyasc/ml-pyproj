@@ -3,8 +3,7 @@ author: @sabyasc
 github: https://github.com/sabyasc/ml-pyproj
 created: Dec 2024
 """
-import os, requests
-import pandas as pd
+import os, requests, pandas as pd
 
 # Data Ingestion is to fetech data from sources, We will follow below steps:
 # Step 1: Read data from source (csv, json, db, APIs, etc) using os and requests,
