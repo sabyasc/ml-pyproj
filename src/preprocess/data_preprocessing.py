@@ -3,15 +3,29 @@ author: @sabyasc
 github: https://github.com/sabyasc/ml-pyproj
 created: Jan 2025
 """
-import nltk
+import nltk, os
 from preprocess.data_ingestion import ingestion
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from textblob import TextBlob
 
-# Required nltk packages 
-nltk.download('punkt_tab')
-nltk.download('stopwords')
+# Set NLTK's data path to the local nltk_libs folder in the config directory
+local_nltk_path = os.path.join(os.getcwd(), 'config', 'nltk_libs')
+if os.path.exists(local_nltk_path):
+    if local_nltk_path not in nltk.data.path:
+        nltk.data.path.insert(0, local_nltk_path)
+else:
+    print("Local NLTK libraries not found in 'config/nltk_libs'. \
+          Please ensure the directory exists and contains the needed 'corpora' and 'tokenizers'")
+
+
+# def check_package(package_name):
+#     try:
+#         nltk.data.find(f'tokenizers/{package_name}')
+#     except LookupError:
+#         nltk.download(package_name)
+# nltk.download('punkt_tab')
+# nltk.download('stopwords')
 
 # Data Preprocessing is to clean the dataframe received from data_ingestion. We will follow below steps:
 # Step 1: Remove speacial chars, convert to lowercase, tokenization (breaking into seperate words), 
