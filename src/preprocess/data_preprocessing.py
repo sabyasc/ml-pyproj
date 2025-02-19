@@ -16,16 +16,7 @@ if os.path.exists(local_nltk_path):
         nltk.data.path.insert(0, local_nltk_path)
 else:
     print("Local NLTK libraries not found in 'config/nltk_libs'. \
-          Please ensure the directory exists and contains the needed 'corpora' and 'tokenizers'")
-
-
-# def check_package(package_name):
-#     try:
-#         nltk.data.find(f'tokenizers/{package_name}')
-#     except LookupError:
-#         nltk.download(package_name)
-# nltk.download('punkt_tab')
-# nltk.download('stopwords')
+          Eensure the directory exists and contains'corpora' and 'tokenizers'")
 
 # Data Preprocessing is to clean the dataframe received from data_ingestion. We will follow below steps:
 # Step 1: Remove speacial chars, convert to lowercase, tokenization (breaking into seperate words), 
@@ -36,7 +27,7 @@ else:
 def preprocessing():
     df = ingestion().dropna(axis=1, how='any')
 
-    df['Tweet_Text'] = df['Tweet_Text'].str.replace('[^a-zA-Z0-9\s]', '', regex=True).str.lower()
+    df['Tweet_Text'] = df['Tweet_Text'].str.replace(r'[^a-zA-Z0-9\s]', '', regex=True).str.lower()
     df['Tweet_Text'] = df['Tweet_Text'].apply(word_tokenize)
 
     sw = set(stopwords.words('english'))
