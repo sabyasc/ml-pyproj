@@ -14,7 +14,6 @@ def ingestion():
     choice = input("Choose data source: 1 for API, 2 for CSV: ")
     
     if choice == "1":
-        current_dir = os.path.dirname(os.path.abspath(__file__))
         api_url = "https://jsonplaceholder.typicode.com/posts"
         api_response = requests.get(api_url)
     
