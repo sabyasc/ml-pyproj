@@ -35,7 +35,7 @@ def ingestion():
         print("================ CSV Data Ingestion Completed ================")
         
     else:
-        print("Invalid choice. Please choose either 1 or 2.")
+        print("Invalid choice. Please try again.")
         result = None
         
     return result
