@@ -15,8 +15,7 @@ if os.path.exists(local_nltk_path):
     if local_nltk_path not in nltk.data.path:
         nltk.data.path.insert(0, local_nltk_path)
 else:
-    print("Local NLTK libraries not found in 'config/nltk_libs'. \
-          Eensure the directory exists and contains'corpora' and 'tokenizers'")
+    print("Local NLTK libraries not found in 'config/nltk_libs'.")
 
 # Data Preprocessing is to clean the dataframe received from data_ingestion. We will follow below steps:
 # Step 1: Remove speacial chars, convert to lowercase, tokenization (breaking into seperate words), 
