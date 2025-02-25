@@ -34,7 +34,7 @@ result = read_df()
 # Step 4: Remove URLs, remove mentions, remove hashtags, remove numbers, remove extra spaces, 
 # Step 5: lemmatization (optional - converting words to base form)
 def preprocessing():
-    df = result().dropna(axis=1, how='any')
+    df = read_df().dropna(axis=1, how='any')
 
     df['Tweet_Text'] = df['Tweet_Text'].str.replace(r'[^a-zA-Z0-9\s]', '', regex=True).str.lower()
     df['Tweet_Text'] = df['Tweet_Text'].apply(word_tokenize)
