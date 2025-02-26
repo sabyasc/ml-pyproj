@@ -3,7 +3,7 @@ author: @sabyasc
 github: https://github.com/sabyasc/ml-pyproj
 created: Jan 2025
 """
-import nltk, os
+import nltk, os, pandas as pd
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from textblob import TextBlob
@@ -22,7 +22,7 @@ else:
     print("Local NLTK libraries not found in 'config/nltk_libs'.")
 
 def read_df():
-    result = ingestion()
+    result = pd.DataFrame(ingestion())
     return result
 
 result = read_df()
