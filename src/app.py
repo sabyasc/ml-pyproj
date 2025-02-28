@@ -5,7 +5,7 @@ created: Jan 2025
 """
 from flask import Flask, redirect
 from preprocess.data_ingestion import ingestion
-from preprocess.data_preprocessing import preprocessing
+# from preprocess.data_preprocessing import preprocessing
 # from model.model_training import train
 # from model.model_tracking import model_tracking, model_testing
 
@@ -27,7 +27,7 @@ def status():
 # # To fetch /model metadata
 @app.route("/api/model", methods=['GET'])
 def model_metadata_api():
-    metadata = preprocessing()
+    metadata = ingestion()
     return metadata
 
 # # To /track model performance
