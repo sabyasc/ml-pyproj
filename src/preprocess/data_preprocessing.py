@@ -26,7 +26,6 @@ def read_df():
     return result
 
 result = read_df()
-print(result)
 
 # Data Preprocessing is to clean the dataframe received from data_ingestion. We will follow below steps:
 # Step 1: Remove speacial chars, convert to lowercase, tokenization (breaking into seperate words), 
@@ -50,7 +49,6 @@ def preprocessing():
     
     df = df[df['Tweet_Text'].str.strip().astype(bool)]
     df['Tweet_Text'] = df['Tweet_Text'].str.normalize('NFKD').str.encode('ascii', errors='ignore').str.decode('utf-8')
-
     df['Tweet_Text'] = df['Tweet_Text'].str.replace(r'http\S+|www.\S+', '', regex=True)
     df['Tweet_Text'] = df['Tweet_Text'].str.replace(r'@\w+', '', regex=True)
     df['Tweet_Text'] = df['Tweet_Text'].str.replace(r'#\w+', '', regex=True) 
