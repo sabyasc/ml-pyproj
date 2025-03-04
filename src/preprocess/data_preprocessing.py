@@ -26,7 +26,7 @@ def read_df():
     return result
 
 result = read_df()
-print(result)
+print(result.head(5))
 
 # Data Preprocessing is to clean the dataframe received from data_ingestion. We will follow below steps:
 # Step 1: Remove speacial chars, convert to lowercase, tokenization (breaking into seperate words), 
