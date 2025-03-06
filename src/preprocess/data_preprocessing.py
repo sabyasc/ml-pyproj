@@ -10,6 +10,10 @@ from textblob import TextBlob
 from data_ingestion import ingestion
 
 # Set NLTK's data path to the local nltk_libs folder in the config directory
+# current_dir = os.path.dirname(os.path.abspath(__file__))
+# local_nltk_path = os.path.join(os.path.dirname(os.path.dirname(current_dir)), 'config', 'nltk_libs')
+# local_nltk_path = os.path.join(os.getcwd(), 'config', 'nltk_libs')
+
 local_nltk_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "config", "nltk_libs"))
 if os.path.exists(local_nltk_path):
     if local_nltk_path not in nltk.data.path:
@@ -22,7 +26,6 @@ def read_df():
     return result
 
 result = read_df()
-print(result.head(5))
 
 # Data Preprocessing is to clean the dataframe received from data_ingestion. We will follow below steps:
 # Step 1: Remove speacial chars, convert to lowercase, tokenization (breaking into seperate words), 
