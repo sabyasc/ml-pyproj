@@ -39,6 +39,3 @@ def ingestion():
         result = None
         
     return result
-
-# Uncomment to test the function and see the output
-# print(ingestion())
