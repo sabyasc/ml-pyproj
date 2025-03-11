@@ -7,7 +7,7 @@ import nltk, os, pandas as pd
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from textblob import TextBlob
-from data_ingestion import ingestion
+from ..preprocess.data_ingestion import ingestion
 
 # Set NLTK's data path to the local nltk_libs folder in the config directory
 
