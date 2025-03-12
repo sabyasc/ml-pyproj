@@ -8,8 +8,7 @@ import os, requests, pandas as pd
 # Data Ingestion is to fetech data from sources, We will follow below steps:
 # Step 1: Read data from source (csv, json, db, APIs, etc) using os and requests,
 # Step 2: Choose either API or CSV to read data and display first 10 example rows of data,
-# Step 3: Return the data to the calling function,
-# Step 4: (Optional) Print the message of data ingestion completion 
+# Step 3: Return the data to the calling function
 def ingestion():
     choice = input("Choose data source: 1 for API, 2 for CSV: ")
     
