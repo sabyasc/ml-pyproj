@@ -20,7 +20,7 @@ def default():
 def status():
     return {
             'status': 'Success',
-            'message': 'Please use /api/model, /api/model/track, /api/model/test endpoints for your requests'
+            'message': 'Please use endpoints - /api/model, /api/model/track, /api/model/test endpoints for your requests'
             }
 
 # # To fetch /model metadata
@@ -42,4 +42,4 @@ def model_metadata_api():
 #     return test_model
 
 if __name__ == "__main__":
-    app.run(port=5000)
+    app.run(port=5000, debug=True)
