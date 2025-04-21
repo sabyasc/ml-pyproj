@@ -5,6 +5,7 @@ created: Jan 2025
 """
 from flask import Flask, redirect
 from preprocess.data_preprocessing import preprocessing
+from flask_cors import cross_origin
 # from model.model_training import train
 # from model.model_tracking import model_tracking, model_testing
 
@@ -12,6 +13,7 @@ app = Flask(__name__)
 
 # Default endpoint which will redirect to /api
 @app.route('/', methods=['GET'])
+@cross_origin()
 def default():
     return redirect("/api")
 
