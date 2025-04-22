@@ -12,6 +12,7 @@ from flask_cors import cross_origin
 app = Flask(__name__)
 
 # Default endpoint which will redirect to /api
+# cors is used to allow cross-origin requests
 @app.route('/', methods=['GET'])
 @cross_origin()
 def default():
