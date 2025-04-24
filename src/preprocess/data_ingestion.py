@@ -2,16 +2,18 @@
 author: @sabyasc
 github: https://github.com/sabyasc/ml-pyproj
 created: Dec 2024
+updated: April 2025
 """
 import os, requests, pandas as pd
 
-# Data Ingestion is to fetech data from sources, We will follow below steps:
+# Data Ingestion is to fetch data from sources, We will follow below steps:
 # Step 1: Read data from source (csv, json, db, APIs, etc) using os and requests,
 # Step 2: Choose either API or CSV to read data and display first 10 example rows of data,
 # Step 3: Return the data to the calling function
 def ingestion():
     choice = input("Choose data source: 1 for API, 2 for CSV: ")
     
+    # API data ingestion
     if choice == "1":
         api_url = "https://jsonplaceholder.typicode.com/posts"
         api_response = requests.get(api_url)
@@ -23,7 +25,8 @@ def ingestion():
         else:
             print("Failed to fetch data from API.")
             result = {}
-            
+    
+    # CSV data ingestion    
     elif choice == "2":
         current_dir = os.path.dirname(os.path.abspath(__file__))
         data_path = os.path.join(os.path.dirname(os.path.dirname(current_dir)), 'data', 'raw', 'train.csv')
@@ -38,3 +41,6 @@ def ingestion():
         result = None
         
     return result
+
+# Test the ingestion function
+print(ingestion())
