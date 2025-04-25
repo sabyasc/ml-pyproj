@@ -45,5 +45,6 @@ def status():
 #     test_model = model_testing()
 #     return test_model
 
+# To allow public and private access to the API
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
