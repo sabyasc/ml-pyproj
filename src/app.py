@@ -23,7 +23,8 @@ def default():
 def status():
     return {
             'status': 'Success',
-            'message': 'Please use endpoints - /api/model, /api/model/track, /api/model/test endpoints for your requests'
+            'method': 'GET',
+            'message': 'API is up and running',
             }
 
 # # To fetch /model metadata
