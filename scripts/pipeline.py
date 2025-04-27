@@ -2,10 +2,11 @@
 author: sabyasc
 github: https://github.com/sabyasc
 created: Dec 2024
+updated: April 2025
 """
-# from airflow.models import DAG
-# from airflow.operators.python import PythonOperator
-# from models.train import  ingestion, preprocessing, model_training, model_validation, model_deployment
+from airflow.models import DAG
+from airflow.operators.python import PythonOperator
+from models.train import  ingestion, preprocessing, model_training, model_validation, model_deployment
 import timedelta, datetime
 
 import os
@@ -36,29 +37,29 @@ with DAG(
     catchup=False,
 ) as dag:
     
-    # ingest_task = PythonOperator(
-    #     task_id='ingestion',
-    #     python_callable=ingestion
-    # )
+    ingest_task = PythonOperator(
+        task_id='ingestion',
+        python_callable=ingestion
+    )
 
-    # preprocess_task = PythonOperator(
-    #     task_id='preprocessing',
-    #     python_callable=preprocessing
-    # )
+    preprocess_task = PythonOperator(
+        task_id='preprocessing',
+        python_callable=preprocessing
+    )
 
-    # train_task = PythonOperator(
-    #     task_id='model_training',
-    #     python_callable=model_training
-    # )
+    train_task = PythonOperator(
+        task_id='model_training',
+        python_callable=model_training
+    )
 
-    # validate_task = PythonOperator(
-    #     task_id='model_validation',
-    #     python_callable=model_validation
-    # )
+    validate_task = PythonOperator(
+        task_id='model_validation',
+        python_callable=model_validation
+    )
 
-    # deploy_task = PythonOperator(
-    #     task_id='model_deployment',
-    #     python_callable=model_deployment
-    # )
+    deploy_task = PythonOperator(
+        task_id='model_deployment',
+        python_callable=model_deployment
+    )
 
     ingest_task >> preprocess_task >> train_task >> validate_task >> deploy_task
