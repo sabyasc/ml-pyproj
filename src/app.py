@@ -6,6 +6,7 @@ created: Jan 2025
 from flask import Flask, redirect
 # from preprocess.data_preprocessing import preprocessing
 from flask_cors import cross_origin
+from preprocess.data_ingest import ingestion
 # from model.model_training import train
 # from model.model_tracking import model_tracking, model_testing
 
@@ -26,12 +27,12 @@ def status():
             'method': 'GET',
             'message': 'API is up and running',
             }
-
-# # To fetch /model metadata
-# @app.route("/api/model", methods=['GET'])
-# def model_metadata_api():
-#     metadata = preprocessing()
-#     return metadata
+    
+# To fetch /model metadata
+@app.route("/api/model", methods=['GET'])
+def model_metadata_api():
+    metadata = ingestion()
+    return metadata
 
 # # To /track model performance
 # @app.route("/api/model/track", methods=['GET'])
