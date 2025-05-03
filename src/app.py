@@ -4,14 +4,18 @@ github: https://github.com/sabyasc/ml-pyproj
 created: Jan 2025
 """
 from flask import Flask, redirect
-from preprocess.data_ingestion import ingestion
+# from preprocess.data_preprocessing import preprocessing
+from flask_cors import cross_origin
+from preprocess.data_ingest import ingestion
 # from model.model_training import train
 # from model.model_tracking import model_tracking, model_testing
 
 app = Flask(__name__)
 
 # Default endpoint which will redirect to /api
+# cors is used to allow cross-origin requests
 @app.route('/', methods=['GET'])
+@cross_origin()
 def default():
     return redirect("/api")
 
@@ -20,10 +24,11 @@ def default():
 def status():
     return {
             'status': 'Success',
-            'message': 'Please use /api/model, /api/model/track, /api/model/test endpoints for your requests'
+            'method': 'GET',
+            'message': 'API is up and running',
             }
-
-# # To fetch /model metadata
+    
+# To fetch /model metadata
 @app.route("/api/model", methods=['GET'])
 def model_metadata_api():
     metadata = ingestion()
@@ -41,5 +46,6 @@ def model_metadata_api():
 #     test_model = model_testing()
 #     return test_model
 
+# To allow public and private access to the API
 if __name__ == "__main__":
-    app.run(port=5000)
+    app.run(host="0.0.0.0", port=5000, debug=True)

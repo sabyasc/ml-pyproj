@@ -3,15 +3,26 @@ author: @sabyasc
 github: https://github.com/sabyasc/ml-pyproj
 created: Jan 2025
 """
-import nltk
-from preprocess.data_ingestion import ingestion
+import nltk, os, pandas as pd
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from textblob import TextBlob
+from ..preprocess.data_ingestion import ingestion
 
-# Required nltk packages 
-nltk.download('punkt_tab')
-nltk.download('stopwords')
+# Set NLTK's data path to the local nltk_libs folder in the config directory
+
+local_nltk_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "config", "nltk_libs"))
+if os.path.exists(local_nltk_path):
+    if local_nltk_path not in nltk.data.path:
+        nltk.data.path.insert(0, local_nltk_path)
+else:
+    print("Local NLTK libraries not found in 'config/nltk_libs'.")
+
+def read_df():
+    result = pd.DataFrame(ingestion())
+    return result
+
+result = read_df()
 
 # Data Preprocessing is to clean the dataframe received from data_ingestion. We will follow below steps:
 # Step 1: Remove speacial chars, convert to lowercase, tokenization (breaking into seperate words), 
@@ -20,9 +31,9 @@ nltk.download('stopwords')
 # Step 4: Remove URLs, remove mentions, remove hashtags, remove numbers, remove extra spaces, 
 # Step 5: lemmatization (optional - converting words to base form)
 def preprocessing():
-    df = ingestion().dropna(axis=1, how='any')
+    df = read_df().dropna(axis=1, how='any')
 
-    df['Tweet_Text'] = df['Tweet_Text'].str.replace('[^a-zA-Z0-9\s]', '', regex=True).str.lower()
+    df['Tweet_Text'] = df['Tweet_Text'].str.replace(r'[^a-zA-Z0-9\s]', '', regex=True).str.lower()
     df['Tweet_Text'] = df['Tweet_Text'].apply(word_tokenize)
 
     sw = set(stopwords.words('english'))
@@ -35,7 +46,6 @@ def preprocessing():
     
     df = df[df['Tweet_Text'].str.strip().astype(bool)]
     df['Tweet_Text'] = df['Tweet_Text'].str.normalize('NFKD').str.encode('ascii', errors='ignore').str.decode('utf-8')
-
     df['Tweet_Text'] = df['Tweet_Text'].str.replace(r'http\S+|www.\S+', '', regex=True)
     df['Tweet_Text'] = df['Tweet_Text'].str.replace(r'@\w+', '', regex=True)
     df['Tweet_Text'] = df['Tweet_Text'].str.replace(r'#\w+', '', regex=True) 
