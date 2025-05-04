@@ -6,7 +6,7 @@ created: Jan 2025
 from flask import Flask, redirect
 # from preprocess.data_preprocessing import preprocessing
 from flask_cors import cross_origin
-from preprocess.data_ingest import ingestion
+from preprocess.ingestData import ingestion
 # from model.model_training import train
 # from model.model_tracking import model_tracking, model_testing
 
