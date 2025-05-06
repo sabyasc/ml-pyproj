@@ -6,14 +6,14 @@ created: Jan 2025
 from flask import Flask, redirect
 # from preprocess.data_preprocessing import preprocessing
 from flask_cors import cross_origin
-from preprocess.ingestData import ingestion
+from preprocess.ingestData import dataIngestion
 # from model.model_training import train
 # from model.model_tracking import model_tracking, model_testing
 
 app = Flask(__name__)
 
 # Default endpoint which will redirect to /api
-# cors is used to allow cross-origin requests
+# CORS is used to allow cross-origin requests
 @app.route('/', methods=['GET'])
 @cross_origin()
 def default():
@@ -31,7 +31,7 @@ def status():
 # To fetch /model metadata
 @app.route("/api/model", methods=['GET'])
 def model_metadata_api():
-    metadata = ingestion()
+    metadata = dataIngestion()
     return metadata
 
 # # To /track model performance

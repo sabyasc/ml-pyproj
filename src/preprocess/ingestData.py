@@ -2,7 +2,7 @@
 author: @sabyasc
 github: https://github.com/sabyasc/ml-pyproj
 created: Dec 2024
-updated: April 2025
+updated: May 2025
 """
 import os, requests, pandas as pd
 
@@ -10,7 +10,7 @@ import os, requests, pandas as pd
 # Step 1: Read data from source (csv, json, db, APIs, etc) using os and requests,
 # Step 2: Choose either API or CSV to read data and display first 10 example rows of data,
 # Step 3: Return the data to the calling function
-def ingestion():
+def dataIngestion():
     choice = input("Choose data source: 1 for API, 2 for CSV: ")
     
     # API data ingestion
