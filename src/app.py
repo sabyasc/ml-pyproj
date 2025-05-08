@@ -2,11 +2,12 @@
 author: @sabyasc
 github: https://github.com/sabyasc/ml-pyproj
 created: Jan 2025
+updated: May 2025
 """
 from flask import Flask, redirect
 # from preprocess.data_preprocessing import preprocessing
 from flask_cors import cross_origin
-from preprocess.ingestData import dataIngestion
+from preprocess.dataPreprocess import dataPreprocessing
 # from model.model_training import train
 # from model.model_tracking import model_tracking, model_testing
 
@@ -31,7 +32,7 @@ def status():
 # To fetch /model metadata
 @app.route("/api/model", methods=['GET'])
 def model_metadata_api():
-    metadata = dataIngestion()
+    metadata = dataPreprocessing()
     return metadata
 
 # # To /track model performance
