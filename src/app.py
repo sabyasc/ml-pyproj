@@ -36,10 +36,10 @@ def model_metadata_api():
     return metadata
 
 # # To /track model performance
-@app.route("/api/model/track", methods=['GET'])
-def model_track_api():
-    metadata = "model_tracking()"
-    return metadata
+# @app.route("/api/model/track", methods=['GET'])
+# def model_track_api():
+#     metadata = "model_tracking()"
+#     return metadata
 
 # # To /test model performance
 # @app.route("/api/model/test", methods=['GET'])
