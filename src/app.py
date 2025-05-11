@@ -30,7 +30,7 @@ def status():
             }
     
 # To fetch /model metadata
-@app.route("/api/model", methods=['GET'])
+@app.route("/api/preprocess", methods=['GET'])
 def model_metadata_api():
     metadata = dataPreprocessing()
     return metadata
