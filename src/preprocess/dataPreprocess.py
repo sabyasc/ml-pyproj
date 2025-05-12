@@ -11,7 +11,6 @@ from textblob import TextBlob
 from preprocess.ingestData import dataIngestion as ingestion
 
 # Set NLTK's data path to the local nltk_libs folder in the config directory
-
 local_nltk_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "config", "nltk_libs"))
 if os.path.exists(local_nltk_path):
     if local_nltk_path not in nltk.data.path:
@@ -25,13 +24,13 @@ def read_df():
 
 result = read_df()
 
-# Data Preprocessing is to clean the dataframe received from data_ingestion. We will follow below steps:
+# Data preprocessing is to clean the dataframe received from data_ingestion. We will follow below steps:
 # Step 1: Remove speacial chars, convert to lowercase, tokenization (breaking into seperate words), 
 # Step 2: Remove stopwords, remove short words, join tokens to string, remove duplicates, reset index, 
 # Step 3: Remove rows with empty 'Tweet_Text', normalization (converting into standard format for system), 
 # Step 4: Remove URLs, remove mentions, remove hashtags, remove numbers, remove extra spaces, 
 # Step 5: lemmatization (optional - converting words to base form)
-def dataPreprocessing():
+def preprocessing():
     df = read_df().dropna(axis=1, how='any')
 
     df['Tweet_Text'] = df['Tweet_Text'].str.replace(r'[^a-zA-Z0-9\s]', '', regex=True).str.lower()
