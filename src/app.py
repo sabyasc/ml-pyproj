@@ -5,7 +5,6 @@ created: Jan 2025
 updated: May 2025
 """
 from flask import Flask, redirect
-# from preprocess.data_preprocessing import preprocessing
 from flask_cors import cross_origin
 from preprocess.dataPreprocess import preprocessing
 # from model.model_training import train
