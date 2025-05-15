@@ -43,4 +43,4 @@ def dataIngestion():
     return result
 
 # Test the ingestion function
-# print(dataIngestion())
+print(dataIngestion())
