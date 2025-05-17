@@ -20,6 +20,7 @@ else:
 
 def read_df():
     result = pd.DataFrame(ingestion())
+    print(result)
     return result
 
 result = read_df()
