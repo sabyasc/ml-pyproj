@@ -65,3 +65,7 @@ def preprocessing():
     
     print("================ Data Preprocessing completed ================")
     return df
+
+# Test the preprocessing function
+print(preprocessing())
+
