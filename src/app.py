@@ -25,7 +25,7 @@ def status():
     return {
             'status': 'Success',
             'method': 'GET',
-            'message': 'API is up and running',
+            'message': 'APIs are up and running',
             }
     
 # To fetch /model metadata
