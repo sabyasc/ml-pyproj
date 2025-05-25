@@ -7,3 +7,4 @@ mlruns/
 MANIFEST
 .env
 .venv
+.vscode/
