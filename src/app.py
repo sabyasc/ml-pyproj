@@ -35,16 +35,16 @@ def model_metadata_api():
     return metadata
 
 # # To /track model performance
-@app.route("/api/model/track", methods=['GET'])
-def model_track_api():
-    metadata = "model_tracking()"
-    return metadata
+# @app.route("/api/model/track", methods=['GET'])
+# def model_track_api():
+#     metadata = "model_tracking()"
+#     return metadata
 
 # # To /test model performance
-@app.route("/api/model/test", methods=['GET'])
-def model_test_api():
-    test_model = "model_testing()"
-    return test_model
+# @app.route("/api/model/test", methods=['GET'])
+# def model_test_api():
+#     test_model = "model_testing()"
+#     return test_model
 
 # To allow public and private access to the API
 if __name__ == "__main__":
