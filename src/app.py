@@ -7,7 +7,7 @@ updated: May 2025
 from flask import Flask, redirect
 from flask_cors import cross_origin
 from preprocess.dataPreprocess import preprocessing
-# from model.model_training import train
+from model.dataTraining import train
 # from model.model_tracking import model_tracking, model_testing
 
 app = Flask(__name__)
@@ -35,10 +35,10 @@ def model_metadata_api():
     return metadata
 
 # # To /track model performance
-# @app.route("/api/model/track", methods=['GET'])
-# def model_track_api():
-#     metadata = "model_tracking()"
-#     return metadata
+@app.route("/api/model/track", methods=['GET'])
+def model_track_api():
+    metadata = train()
+    return metadata
 
 # # To /test model performance
 # @app.route("/api/model/test", methods=['GET'])
