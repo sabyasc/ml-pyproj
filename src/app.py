@@ -54,4 +54,4 @@ def model_train_api():
 
 # To allow public and private access to the API
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000)
