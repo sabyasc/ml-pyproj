@@ -18,7 +18,7 @@ predict-flow/
 │   │       ├── ingestData.py
 │   │       └── dataPreprocess.py
 │   ├── model/
-│   │       ├── model_training.py
+│   │       ├── dataTraining.py
 │   │       ├── model_evaluation.py
 │   │       ├── model_tracking.py
 │   │       └── model_deployment.py 
