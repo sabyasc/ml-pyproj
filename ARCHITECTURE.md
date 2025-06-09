@@ -20,8 +20,8 @@ predict-flow/
 │   ├── model/
 │   │       ├── dataTraining.py
 │   │       ├── modelEvaluation.py
-│   │       ├── model_tracking.py
-│   │       └── model_deployment.py 
+│   │       ├── modelTracking.py
+│   │       └── modelDeployment.py
 │   ├── utils/
 │   ├── __init__.py 
 │   └── app.py
