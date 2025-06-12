@@ -8,7 +8,7 @@ from flask import Flask, redirect
 from flask_cors import cross_origin
 from preprocess.dataPreprocess import preprocessing
 from model.dataTraining import train
-# from model.model_tracking import model_tracking, model_testing
+from model.modelTracking import tracking
 
 app = Flask(__name__)
 
@@ -40,11 +40,16 @@ def model_train_api():
     metadata = train()
     return metadata
 
-# # To /track model performance
-# @app.route("/api/model/track", methods=['GET'])
-# def model_track_api():
-#     metadata = "TBD()"
-#     return metadata
+# To /track model performance
+@app.route("/api/model/track", methods=['GET'])
+def model_track_api():
+    metadata = tracking()
+    if metadata is None:
+        return {
+            'status': 'Error',
+            'message': 'No model tracking data found.'
+        }, 404
+    return metadata
 
 # # To /test model performance
 # @app.route("/api/model/test", methods=['GET'])

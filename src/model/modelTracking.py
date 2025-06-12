@@ -15,7 +15,7 @@ from src import pd, mlflow, joblib, json
 # Step 3: Save the confusion matrix and classification report to artifacts,
 # Step 4: Console log message for successful model tracking,
 # Step 5: Return outputs of the model metrics and predictions
-def model_tracking():
+def tracking():
     outputs = validation()
     mlflow.start_run()
     mlflow.log_param("Best Model", outputs['best_model'])
