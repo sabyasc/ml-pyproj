@@ -12,6 +12,7 @@ from model.modelTracking import tracking
 
 app = Flask(__name__)
 
+
 # Default endpoint which will redirect to /api
 # CORS is used to allow cross-origin requests
 @app.route('/', methods=['GET'])
