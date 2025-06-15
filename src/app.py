@@ -38,6 +38,11 @@ def model_metadata_api():
 @app.route("/api/model/train", methods=['GET'])
 def model_train_api():
     metadata = train()
+    if metadata is None:
+        return {
+            'status': 'Error',
+            'message': 'No model training data found.'
+        }, 404
     return metadata
 
 # To /track model performance
