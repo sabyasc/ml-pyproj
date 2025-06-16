@@ -32,6 +32,11 @@ def status():
 @app.route("/api/preprocess", methods=['GET'])
 def model_metadata_api():
     metadata = preprocessing()
+    if metadata is None:
+        return {
+            'status': 'Error',
+            'message': 'No preprocessed data found.'
+        }, 404
     return metadata
 
 # To /train model performance
