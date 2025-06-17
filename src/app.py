@@ -35,6 +35,7 @@ def model_metadata_api():
     if metadata is None:
         return {
             'status': 'Error',
+            'method': 'GET',
             'message': 'No preprocessed data found.'
         }, 404
     return metadata
