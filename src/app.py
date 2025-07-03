@@ -47,6 +47,7 @@ def model_train_api():
     if metadata is None:
         return {
             'status': 'Error',
+            'method': 'GET',
             'message': 'No model training data found.'
         }, 404
     return metadata
@@ -58,6 +59,7 @@ def model_track_api():
     if metadata is None:
         return {
             'status': 'Error',
+            'method': 'GET',
             'message': 'No model tracking data found.'
         }, 404
     return metadata
