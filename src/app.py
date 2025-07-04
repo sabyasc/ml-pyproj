@@ -2,7 +2,7 @@
 author: @sabyasc
 github: https://github.com/sabyasc/ml-pyproj
 created: Jan 2025
-updated: May 2025
+updated: July 2025
 """
 from flask import Flask, redirect
 from flask_cors import cross_origin
