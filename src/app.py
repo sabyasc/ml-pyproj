@@ -14,10 +14,10 @@ app = Flask(__name__)
 
 # Default endpoint which will redirect to /api
 # CORS is used to allow cross-origin requests
-# @app.route('/', methods=['GET'])
-# @cross_origin()
-# def default():
-#     return redirect("/api")
+@app.route('/', methods=['GET'])
+@cross_origin()
+def default():
+    return redirect("/api")
 
 # To check /api status
 @app.route("/api", methods=['GET'])
