@@ -5,7 +5,7 @@ created: Dec 2024
 updated: July 2025
 """
 
-# from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import joblib
 
