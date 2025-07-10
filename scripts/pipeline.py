@@ -2,7 +2,7 @@
 author: sabyasc
 github: https://github.com/sabyasc
 created: Dec 2024
-updated: April 2025
+updated: July 2025
 """
 from airflow.models import DAG
 from airflow.operators.python import PythonOperator
