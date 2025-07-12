@@ -2,7 +2,7 @@
 author: @sabyasc
 github: https://github.com/sabyasc/ml-pyproj
 created: Jan 2025
-updated: June 2025
+updated: July 2025
 """
 from model.dataTraining import train
 from sklearn.metrics import f1_score, confusion_matrix, classification_report, roc_auc_score
