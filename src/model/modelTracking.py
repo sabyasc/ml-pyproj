@@ -2,7 +2,7 @@
 author: @sabyasc
 github: https://github.com/sabyasc/ml-pyproj
 created: Jan 2025
-updated: June 2025
+updated: July 2025
 """
 # src libs are fetched from __init__.py
 from src.model.modelEvaluation import validation 
