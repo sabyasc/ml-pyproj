@@ -4,7 +4,7 @@ github: https://github.com/sabyasc
 created: Dec 2024
 updated: July 2025
 """
-# arflow methd for orchestration
+# arflow method for orchestration of deployment
 from airflow.models import DAG
 from airflow.operators.python import PythonOperator
 from models.train import  ingestion, preprocessing, model_training, model_validation, model_deployment
