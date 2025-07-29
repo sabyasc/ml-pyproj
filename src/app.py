@@ -21,12 +21,20 @@ def default():
 
 # To check /api status
 @app.route("/api", methods=['GET'])
+@cross_origin()
 def status():
-    return {
+    try:
+        return {
             'status': 'Success',
             'method': 'GET',
-            'message': 'APIs are up and running',
-            }
+            'message': 'APIs are up and running'
+        }, 200
+    except Exception as e:
+        return {
+            'status': 'Error',
+            'method': 'GET',
+            'message': f'API status check failed: {str(e)}'
+        }, 500
     
 # To fetch /model metadata
 @app.route("/api/preprocess", methods=['GET'])
