@@ -19,6 +19,15 @@ app = Flask(__name__)
 def default():
     return redirect("/api")
 
+@app.route('/api/nore', methods=['GET'])
+@cross_origin()
+def nore_feature():
+    return {
+        'status': 'Success',
+        'method': 'GET',
+        'message': 'Nore feature endpoint is active'
+    }, 200
+
 # To check /api status
 @app.route("/api", methods=['GET'])
 @cross_origin()
