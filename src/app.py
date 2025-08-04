@@ -19,6 +19,8 @@ app = Flask(__name__)
 def default():
     return redirect("/api")
 
+# To check /api/nore feature
+# This endpoint is a placeholder for any future feature
 @app.route('/api/nore', methods=['GET'])
 @cross_origin()
 def nore_feature():
