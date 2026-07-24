@@ -38,6 +38,7 @@ def preprocessing():
     df['Tweet_Text'] = df['Tweet_Text'].apply(word_tokenize)
 
     sw = set(stopwords.words('english'))
+    
     df['Tweet_Text'] = df['Tweet_Text'].apply(lambda x: [item for item in x if item not in sw])
     df['Tweet_Text'] = df['Tweet_Text'].apply(lambda x: [item for item in x if len(item) > 2])
     df['Tweet_Text'] = df['Tweet_Text'].apply(lambda x: ' '.join(x))
